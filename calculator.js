@@ -1,7 +1,6 @@
 const resultInput = document.getElementById('result');
 const buttons = document.querySelectorAll('button');
 let result = resultInput.value;
-
 buttons.forEach(function(button){
     button.addEventListener('click',function(event){
         const value = event.target.value;
@@ -10,7 +9,9 @@ buttons.forEach(function(button){
     });
 });
 let clear = function (){
-    result = 0
+    if (resultInput.value != ""){
+        resultInput.value = "";
+    };
 }
 const operators = {
     add: function(x,y){
@@ -45,3 +46,5 @@ const operate = function (operator,x,y){
     }
 }
 
+const clearButton = document.querySelector('.operators button:nth-child(5)');
+clearButton.addEventListener('click',clear)
