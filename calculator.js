@@ -1,31 +1,44 @@
-let add = function(x , y){
-    return x + y;
-}
+const resultInput = document.getElementById('result');
+const buttons = document.querySelectorAll('button');
+let result = resultInput.value;
 
-let subtract = function(x , y){
-    return x - y;
-}
+buttons.forEach(function(button){
+    button.addEventListener('click',function(event){
+        const value = event.target.value;
+        resultInput.value += value;
 
-let multiply = function(x , y){
-    return x * y;
+    });
+});
+let clear = function (){
+    result = 0
 }
-
-let divide = function(x , y){
-    return x / y;
+const operators = {
+    add: function(x,y){
+        return x + y;
+    },
+    subtract: function (x,y){
+        return x - y;
+    },
+    multiply: function(x,y){
+        return x * y;
+    },
+    divide: function(x,y){
+        return x / y;
+    },
 }
 
 const operate = function (operator,x,y){
     if (operator === '+'){
-        return add (x,y)
+        return operators.add (x,y)
     }
     else if (operator === '-'){
-        return subtract (x,y)
+        return operators.subtract (x,y)
     }
     else if (operator === '*'){
-        return multiply (x,y)
+        return operators.multiply (x,y)
     }
     else if (operator === '/'){
-        return divide (x,y)
+        return operators.divide (x,y)
     }
     else {
         console.log('Invalid operator!')
