@@ -1,6 +1,7 @@
 const resultInput = document.getElementById('result');
 const buttons = document.querySelectorAll('button');
-let result = resultInput.value;
+let result = resultInput.value
+
 buttons.forEach(function(button){
     button.addEventListener('click',function(event){
         const value = event.target.value;
