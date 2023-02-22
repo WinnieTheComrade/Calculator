@@ -1,7 +1,10 @@
+/*
 const resultInput = document.getElementById('result');
 const buttons = document.querySelectorAll('button');
+const clearButton = document.querySelector('.operators button:nth-child(5)');
+const equalButton = document.getElementById('equal');
 let result = resultInput.value
-
+let x = 
 buttons.forEach(function(button){
     button.addEventListener('click',function(event){
         const value = event.target.value;
@@ -14,6 +17,9 @@ let clear = function (){
         resultInput.value = "";
     };
 }
+
+clearButton.addEventListener('click',clear)
+
 const operators = {
     add: function(x,y){
         return x + y;
@@ -29,7 +35,7 @@ const operators = {
     },
 }
 
-const operate = function (operator,x,y){
+const operate = function (x,operator,y){
     if (operator === '+'){
         return operators.add (x,y)
     }
@@ -47,5 +53,6 @@ const operate = function (operator,x,y){
     }
 }
 
-const clearButton = document.querySelector('.operators button:nth-child(5)');
-clearButton.addEventListener('click',clear)
+const calculation = function(x,operator,y){
+    
+}*/

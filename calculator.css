@@ -1,0 +1,38 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+button{
+    border-radius: 6px;
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    font-size: 25px;    
+}
+
+.number{
+    background-color: rgb(190, 190, 190);
+    border-color:rgb(199, 199, 199);
+}
+
+.operator{
+    background-color: grey;
+}
+
+.screen{
+    width: 200px;
+    height: 50px;
+    border: solid rgb(177, 177, 177);
+}
+
+.firstRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
