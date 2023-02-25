@@ -24,10 +24,19 @@ button{
     background-color: grey;
 }
 
-.screen{
-    width: 200px;
-    height: 50px;
+#screen{
+    width: 170px;
+    height: 60px;
     border: solid rgb(177, 177, 177);
+}
+.previous{
+    font-size: 20px;
+    
+}
+
+.current{
+    font-size: 30px;
+    
 }
 
 .firstRow{
