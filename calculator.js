@@ -2,8 +2,6 @@ let operator = '';
 let previousValue = '';
 let currentValue = '';
 
-
-
 document.addEventListener("DOMContentLoaded", function(){
     let clear = document.querySelector(".clear");
 
@@ -36,15 +34,28 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 
     equal.addEventListener('click',function(){
-        calculate();
-        previousScreen.textContent = '';
-        currentScreen.textContent = previousValue;
+        if (currentValue != '' && previousValue != ''){
+            calculate();
+            previousScreen.textContent = '';
+    if(previousValue.length <= 5){
+        currentScreen.textContent = previousValue
+    }   else{
+        currentScreen.textContent = previousValue.slice(0,5) + "...";
+            }
+        }
+
+    })
+
+    decimal.addEventListener('click',function(){
+        addDecimal();
     })
 })
+
 
 function handleNumber(num){
     if(currentValue.length <= 5){
         currentValue += num;
+        
     }
 }
 function handleOperator(op){
@@ -77,65 +88,11 @@ function calculate(){
     currentValue = previousValue.toString();
 }
 
-function roundNumber(){
+function roundNumber(num){
     return Math.round(num * 1000) / 1000;
 }
-
-/*
-const resultInput = document.getElementById('result');
-const buttons = document.querySelectorAll('button');
-const clearButton = document.querySelector('.operators button:nth-child(5)');
-const equalButton = document.getElementById('equal');
-let result = resultInput.value
-let x = 
-buttons.forEach(function(button){
-    button.addEventListener('click',function(event){
-        const value = event.target.value;
-        resultInput.value += value;
-
-    });
-});
-let clear = function (){
-    if (resultInput.value != ""){
-        resultInput.value = "";
-    };
-}
-
-clearButton.addEventListener('click',clear)
-
-const operators = {
-    add: function(x,y){
-        return x + y;
-    },
-    subtract: function (x,y){
-        return x - y;
-    },
-    multiply: function(x,y){
-        return x * y;
-    },
-    divide: function(x,y){
-        return x / y;
-    },
-}
-
-const operate = function (x,operator,y){
-    if (operator === '+'){
-        return operators.add (x,y)
-    }
-    else if (operator === '-'){
-        return operators.subtract (x,y)
-    }
-    else if (operator === '*'){
-        return operators.multiply (x,y)
-    }
-    else if (operator === '/'){
-        return operators.divide (x,y)
-    }
-    else {
-        console.log('Invalid operator!')
+function addDecimal(){
+    if(!currentValue.includes(".")){
+    currentValue += "." 
     }
 }
-
-const calculation = function(x,operator,y){
-    
-}*/
